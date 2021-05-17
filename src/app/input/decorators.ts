@@ -6,20 +6,30 @@ export interface UiPlaceholder {
   placeholder: string;
 }
 export const UiPlaceholder: ClassMixinDecorator = constructor => {
-  class ClassMixin extends constructor {
+  return class extends constructor {
     placeholder = 'placeholder should be overriden!!';
-  }
-
-  return ClassMixin;
+  };
 };
 
 export interface UiReadonly {
   readonly: boolean;
 }
 export const UiReadonly: ClassMixinDecorator = constructor => {
-  class ClassMixin extends constructor {
+  return class extends constructor {
     readonly = false;
+  };
+};
+
+/*
+
+// to use Decorator inside mixin you should create proxy for class inside mixin:
+
+export const UiReadonly: ClassMixinDecorator = constructor => {
+  class MixinClass extends constructor {
+    @optional() readonly = false;
   }
 
-  return ClassMixin;
+  return MixinClass;
 };
+
+*/
