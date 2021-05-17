@@ -7,7 +7,7 @@ export interface UiPlaceholder {
 }
 export const UiPlaceholder: ClassMixinDecorator = constructor => {
   return class extends constructor {
-    placeholder = 'placeholder should be overriden!!';
+    public placeholder: string;
   };
 };
 
@@ -16,7 +16,7 @@ export interface UiReadonly {
 }
 export const UiReadonly: ClassMixinDecorator = constructor => {
   return class extends constructor {
-    readonly = false;
+    public readonly = false;
   };
 };
 
